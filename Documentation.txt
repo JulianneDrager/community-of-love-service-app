@@ -1,0 +1,83 @@
+This API provides authentication functionality for user registration and login. 
+It uses JSON Web Tokens (JWT) for secure user authentication.
+
+Base URL: `http://localhost:3000/auth`
+
+## Endpoints
+
+### 1. Register a User
+
+- **Endpoint:** `/register`
+- **Method:** `POST`
+- **Description:** Register a new user with a unique email and a secure password.
+
+#### Request
+
+```http
+POST /auth/register
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "securepassword"
+}
+
+
+## Response
+## Success Response:
+
+json
+{
+  "message": "User registered successfully"
+}
+
+
+## Error Responses:
+Status Code: 400 Bad Request
+
+json
+{
+  "error": "Invalid request body"
+}
+Status Code: 500 Internal Server Error
+
+json
+{
+  "error": "Internal Server Error"
+}
+
+
+2. User Login
+Endpoint: /login
+Method: POST
+Description: Authenticate a user by providing their email and password.
+Request
+http
+POST /auth/login
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "securepassword"
+}
+Response
+Success Response:
+
+json
+{
+  "token": "your_generated_jwt_token"
+}
+Error Responses:
+
+Status Code: 401 Unauthorized
+
+json
+{
+  "error": "Authentication failed"
+}
+Status Code: 500 Internal Server Error
+
+json
+{
+  "error": "Internal Server Error"
+}
